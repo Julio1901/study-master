@@ -26,6 +26,8 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 15,
                     color: Color.fromARGB(255, 89, 88, 88),
+                    fontFamily: 'Montserrat',
+                    fontStyle: FontStyle.normal 
                   ),
                 ),
                 Padding(
@@ -33,12 +35,16 @@ class HomeScreen extends StatelessWidget {
                   child: Text(AppStrings.getString('manage-your-study')
                   , style: TextStyle(
                     fontSize: 25,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold
                   ),),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 30, bottom: 15),
                   child: Text(AppStrings.getString('study-topics'), style: TextStyle(
-                    fontSize: 22
+                    fontSize: 22,
+                    fontFamily: 'Montserrat',
+                    fontStyle: FontStyle.normal 
                   ),),
                 ),
                 Container(
@@ -47,14 +53,14 @@ class HomeScreen extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
-                     CardWithBorderRounded(),
+                     CardWithBorderRounded(title: 'English', subjectField: 'Languages', imageName: 'english-logo.png',),
+                     CardWithBorderRounded(title: 'Data Struct', subjectField: 'Software Engineering', imageName: 'software-logo.png'),
+                     CardWithBorderRounded(title: 'Clean Architecture', subjectField: 'iOS', imageName: 'apple-logo.png'),
+                     CardWithBorderRounded(title: 'MVVM', subjectField: 'iOS', imageName: 'apple-logo.png'),
+                     CardWithBorderRounded(title: 'TODO Verb', subjectField: 'English', imageName: 'english-logo.png'),
+                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
+                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
+                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
                     ],
                   ),
                 )

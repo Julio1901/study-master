@@ -6,8 +6,10 @@ import 'package:flutter/widgets.dart';
 class CardWithBorderRounded extends StatelessWidget {
 
 final String title; 
+final String subjectField;
+final String imageName;
 
-  const CardWithBorderRounded({super.key, required this.title});
+  const CardWithBorderRounded({super.key, required this.title, required this.subjectField, required this.imageName});
 
   @override
   Widget build(BuildContext context) {
@@ -17,25 +19,42 @@ final String title;
         width: 150,
         height: 100,
         decoration: BoxDecoration(
-          color: Color.fromARGB(51, 0, 0, 0),
+          color: Color.fromRGBO(3, 125, 213, 0.147),
           borderRadius: BorderRadius.circular(15.0), 
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'English',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0, // Tamanho da fonte
+            Padding(
+              padding: const EdgeInsets.only(left: 2, right: 2),
+              child: Text(
+                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Color.fromARGB(255, 79, 80, 81),
+                  fontSize: 16.0,
+                  fontFamily: 'Montserrat',
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
-                child: Image.asset('packages/home/lib/assets/images/tony-stark.png', width: 120, height: 120,
+                child: Image.asset('packages/home/lib/assets/images/${imageName}', width: 120, height: 120,  fit: BoxFit.cover
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0, left: 2, right: 2),
+              child: Text(subjectField, 
+              maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w600
+              ),
               ),
             ),
           ],
