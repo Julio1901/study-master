@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:home/screens/subject_details_screen.dart';
 import 'package:study_master/common/strings.dart';
 import 'package:study_master/data/user_defaults.dart';
+import 'package:study_master/models/subject.dart';
+import 'package:study_master/viewModels/subject_list_viewmodel.dart';
 import '../components/card_with_border_rounded.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   final userDefaults = UserDefaults();
@@ -50,20 +54,36 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                     CardWithBorderRounded(title: 'English', subjectField: 'Languages', imageName: 'english-logo.png',),
-                     CardWithBorderRounded(title: 'Data Struct', subjectField: 'Software Engineering', imageName: 'software-logo.png'),
-                     CardWithBorderRounded(title: 'Clean Architecture', subjectField: 'iOS', imageName: 'apple-logo.png'),
-                     CardWithBorderRounded(title: 'MVVM', subjectField: 'iOS', imageName: 'apple-logo.png'),
-                     CardWithBorderRounded(title: 'TODO Verb', subjectField: 'English', imageName: 'english-logo.png'),
-                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
-                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
-                     CardWithBorderRounded(title: 'Possessive adjectives', subjectField: 'English', imageName: 'english-logo.png'),
-                    ],
-                  ),
-                )
+                  child: Consumer<SubjectListViewModel>(
+                    builder: (BuildContext context, SubjectListViewModel subjectListViewModel, Widget? widget) {
+                      return ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: subjectListViewModel.subjects.map((subject) {
+                          return CardWithBorderRounded(
+                            title: subject.title,
+                            subjectField: subject.topicName,
+                            imageName: subject.imagePath,
+                          );
+                        }).toList(),
+                      );
+                    },
+                  )
+                ),
+                Consumer<SubjectListViewModel>(
+                  builder: (BuildContext context, SubjectListViewModel subjectListViewModel, Widget? widget){
+                    return ElevatedButton(onPressed: () {
+                      subjectListViewModel.addSubject(Subject(title: 'Data Struct', topicName: 'Software Engineering', imagePath: 'software-logo.png'));
+                }, child: Text('Press me'));
+                  },
+                ),
+                ElevatedButton(onPressed: () {
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: (context){
+                    return SubjectDetailsScreen();
+                  })
+                  );
+                } , child:Text('Go to details screen')) 
+         
               ],
             ),
           ),

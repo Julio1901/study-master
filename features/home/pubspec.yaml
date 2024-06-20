@@ -6,12 +6,12 @@ homepage:
 environment:
   sdk: '>=3.3.3 <4.0.0'
   flutter: ">=1.17.0"
-
+  
 dependencies:
   flutter:
     sdk: flutter
   study_master:
-    path: ../
+    path: ../../
 
 dev_dependencies:
   flutter_test:

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:home/screens/home_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:study_master/viewModels/subject_list_viewmodel.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SubjectListViewModel(),
+      child: const MyApp(),
+    ));
 }
 
 class MyApp extends StatelessWidget {
