@@ -31,7 +31,11 @@ class AppStrings {
       'study-topics': {
       AppLanguage.pt: 'Tópicos de estudo',
       AppLanguage.en: 'Study topics',
-    }
+    },
+    'pomodoro-card-description': {
+      AppLanguage.pt: 'Potencialize seus estudos com o pomodoro Study master. Tenha foco e atinja seus objetivos.',
+      AppLanguage.en: 'Boost your studies with the Study Master Pomodoro. Stay focused and achieve your goals.',
+    },
    
   };
 
