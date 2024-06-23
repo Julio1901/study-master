@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                       fontStyle: FontStyle.normal),
                 ),
               ),
-              Container(
+              SizedBox(
                   width: double.infinity,
                   height: 200,
                   child: Consumer<SubjectListViewModel>(
@@ -76,27 +76,30 @@ class HomeScreen extends StatelessWidget {
                       );
                     },
                   )),
-              Consumer<SubjectListViewModel>(
-                builder: (BuildContext context,
-                    SubjectListViewModel subjectListViewModel, Widget? widget) {
-                  return ElevatedButton(
-                      onPressed: () {
-                        subjectListViewModel.addSubject(Subject(
-                            title: 'Data Struct',
-                            topicName: 'Software Engineering',
-                            imagePath: 'software-logo.png'));
-                      },
-                      child: Text('Press me'));
-                },
+              // Consumer<SubjectListViewModel>(
+              //   builder: (BuildContext context,
+              //       SubjectListViewModel subjectListViewModel, Widget? widget) {
+              //     return ElevatedButton(
+              //         onPressed: () {
+              //           subjectListViewModel.addSubject(Subject(
+              //               title: 'Data Struct',
+              //               topicName: 'Software Engineering',
+              //               imagePath: 'software-logo.png'));
+              //         },
+              //         child: Text('Press me'));
+              //   },
+              // ),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Navigator.push(context,
+              //           MaterialPageRoute(builder: (context) {
+              //         return SubjectDetailsScreen();
+              //       }));
+              //     },
+              //     child: Text('Go to details screen')),
+              SizedBox(
+                height: 20,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return SubjectDetailsScreen();
-                    }));
-                  },
-                  child: Text('Go to details screen')),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -106,32 +109,24 @@ class HomeScreen extends StatelessWidget {
                       child: CardFeaturesList(
                           title: 'Pomodoro',
                           description:
-                              'Use this Pomodoro to improve your focus',
-                          icon: Icons.alarm_rounded),
+                              AppStrings.getString('pomodoro-card-description'),
+                          iconName: 'pomodoro-icon-transparent.png'),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
                       child: CardFeaturesList(
-                          title: 'Pomodoro',
+                          title: 'Notifications',
                           description:
-                              'Use this Pomodoro to improve your focus',
-                          icon: Icons.lock_clock_rounded),
+                              AppStrings.getString('notification-card-description'),
+                          iconName: 'notifications-icon-transparent.png',),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5),
                       child: CardFeaturesList(
-                          title: 'Pomodoro',
+                          title: 'Planner',
                           description:
-                              'Use this Pomodoro to improve your focus',
-                          icon: Icons.lock_clock_rounded),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: CardFeaturesList(
-                          title: 'Pomodoro',
-                          description:
-                              'Use this Pomodoro to improve your focus',
-                          icon: Icons.lock_clock_rounded),
+                             AppStrings.getString('planner-card-description'),
+                          iconName: 'planner-icon-transparent.png',),
                     ),
                   ],
                 ),

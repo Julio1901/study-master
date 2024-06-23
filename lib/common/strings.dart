@@ -36,6 +36,14 @@ class AppStrings {
       AppLanguage.pt: 'Potencialize seus estudos com o pomodoro Study master. Tenha foco e atinja seus objetivos.',
       AppLanguage.en: 'Boost your studies with the Study Master Pomodoro. Stay focused and achieve your goals.',
     },
+     'notification-card-description': {
+      AppLanguage.pt: 'Gerencie seus alertas para o Study Master te ajudar a não esquecer seus estudos.',
+      AppLanguage.en: 'Manage your alerts so Study Master can help you stay on top of your studies.',
+    },
+     'planner-card-description': {
+      AppLanguage.pt: 'Use o Calendário para organizar e agendar seus estudos.',
+      AppLanguage.en: 'Use the Planner to organize and schedule your studies.',
+    },
    
   };
 
