@@ -3,11 +3,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:home/components/card_features_list.dart';
+import 'package:home/components/card_study_aid_suite.dart';
 import 'package:home/screens/subject_details_screen.dart';
 import 'package:study_master/common/strings.dart';
 import 'package:study_master/data/user_defaults.dart';
-import 'package:study_master/models/subject.dart';
+import 'package:study_master/domain/models/subject.dart';
+import 'package:study_master/viewModels/main_view_model.dart';
 import 'package:study_master/viewModels/subject_list_viewmodel.dart';
 import '../components/card_with_border_rounded.dart';
 import 'package:provider/provider.dart';
@@ -103,32 +104,13 @@ class HomeScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: CardFeaturesList(
-                          title: 'Pomodoro',
-                          description:
-                              AppStrings.getString('pomodoro-card-description'),
-                          iconName: 'pomodoro-icon-transparent.png'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: CardFeaturesList(
-                          title: 'Notifications',
-                          description:
-                              AppStrings.getString('notification-card-description'),
-                          iconName: 'notifications-icon-transparent.png',),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 5),
-                      child: CardFeaturesList(
-                          title: 'Planner',
-                          description:
-                             AppStrings.getString('planner-card-description'),
-                          iconName: 'planner-icon-transparent.png',),
-                    ),
-                  ],
+                  children: Provider.of<MainViewModel>(context).studyAidSuiteListViewmodel.getStudyAuidSuiteList().map((item) {
+                    return Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                      child: CardStudyAidSuite(title: item.title, description: item.description, iconName: item.iconName),
+                    );
+                  }).toList() ,
+                
                 ),
               )
             ],

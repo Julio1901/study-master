@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:study_master/models/subject.dart';
+import 'package:study_master/domain/models/subject.dart';
 
 class SubjectListViewModel extends ChangeNotifier {
   List<Subject> _subjects = [

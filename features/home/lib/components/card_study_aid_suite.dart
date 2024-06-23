@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:study_master/common/strings.dart';
 
-class CardFeaturesList extends StatelessWidget {
+
+class CardStudyAidSuite extends StatelessWidget {
   String title;
   String description;
   String iconName;
 
-  CardFeaturesList(
+  CardStudyAidSuite(
       {super.key,
       required this.title,
       required this.description,
