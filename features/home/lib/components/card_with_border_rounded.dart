@@ -19,7 +19,7 @@ final String imageName;
         width: 150,
         height: 100,
         decoration: BoxDecoration(
-          color: Color.fromRGBO(3, 125, 213, 0.147),
+          color: Color.fromRGBO(107, 191, 251, 0.145),
           borderRadius: BorderRadius.circular(15.0), 
         ),
         child: Column(
