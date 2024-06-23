@@ -49,13 +49,41 @@ class HomeScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 30, bottom: 15),
-                child: Text(
-                  AppStrings.getString('study-topics'),
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontFamily: 'Montserrat',
-                      fontStyle: FontStyle.normal),
-                ),
+                child: Stack(children: [
+                  Stack(children: [
+                    Transform.translate(
+                      offset: Offset(6, -10),
+                      child: Container(
+                        width: 197.5,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 234, 202, 255),
+                            borderRadius: BorderRadius.circular(3)),
+                        transform: Matrix4.skewX(-0.4),
+                      ),
+                    ),
+                    Container(
+                      width: 200,
+                      height: 30,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 155, 119, 254),
+                          borderRadius: BorderRadius.circular(3)),
+                      transform: Matrix4.skewX(-0.3),
+                    ),
+                  ]),
+                  Transform.translate(
+                    offset: Offset(2, -14),
+                    child: Text(
+                      AppStrings.getString('study-topics'),
+                      style: TextStyle(
+                          fontSize: 29,
+                          fontFamily: 'Montserrat',
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 255, 247, 94)),
+                    ),
+                  ),
+                ]),
               ),
               SizedBox(
                   width: double.infinity,
@@ -104,13 +132,18 @@ class HomeScreen extends StatelessWidget {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: Provider.of<MainViewModel>(context).studyAidSuiteListViewmodel.getStudyAuidSuiteList().map((item) {
+                  children: Provider.of<MainViewModel>(context)
+                      .studyAidSuiteListViewmodel
+                      .getStudyAuidSuiteList()
+                      .map((item) {
                     return Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                      child: CardStudyAidSuite(title: item.title, description: item.description, iconName: item.iconName),
+                      padding: const EdgeInsets.only(left: 5),
+                      child: CardStudyAidSuite(
+                          title: item.title,
+                          description: item.description,
+                          iconName: item.iconName),
                     );
-                  }).toList() ,
-                
+                  }).toList(),
                 ),
               )
             ],
